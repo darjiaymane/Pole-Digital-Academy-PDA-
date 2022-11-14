@@ -3,6 +3,9 @@ package com.example.poledigitalacademypda.Dao.Implementations;
 import com.example.poledigitalacademypda.Dao.Dao;
 import com.example.poledigitalacademypda.Dao.Specs.UserDao;
 import com.example.poledigitalacademypda.Entities.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,12 +15,9 @@ import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.hibernate.service.ServiceRegistry;
 
 public class UserDAOImpl implements UserDao {
-    private SessionFactory sessionFactory;
+    private EntityManager entityManager;
     public UserDAOImpl() {
-        Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
-        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        this.sessionFactory = sessionFactory;
+        this.entityManager= Persistence.createEntityManagerFactory("default").createEntityManager();
     }
 
     @Override
@@ -37,19 +37,11 @@ public class UserDAOImpl implements UserDao {
 
     @Override
     public User save(User user) {
-        Session session = this.sessionFactory.getCurrentSession();
-        session.getTransaction().begin();
-        session.save(user);
-        session.getTransaction().commit();
-        if(session.getTransaction().getStatus()== TransactionStatus.COMMITTED){
-            session.close();
-            return user;
-        }else{
-            session.close();
-            session.getTransaction().rollback();
-            session.close();
-            throw new HibernateException("Transaction was not committed");
-        }
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(user);
+        entityManager.getTransaction().commit();
+        return user;
     }
 
     @Override
@@ -57,9 +49,9 @@ public class UserDAOImpl implements UserDao {
         return null;
     }
 
-    @Override
-    public SessionFactory exportSessionFactory() {
-        return this.sessionFactory;
-    }
 
+
+    public SessionFactory exportEntityManager() {
+        return this.exportEntityManager();
+    }
 }
