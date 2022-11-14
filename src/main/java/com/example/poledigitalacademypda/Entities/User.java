@@ -29,6 +29,12 @@ public class User {
     @OneToOne
     private Role role;
 
-
-
+    public User(String fname, String lname, String email, String phone, String password, Role role) {
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.role = role;
+    }
 }

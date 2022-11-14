@@ -1,6 +1,5 @@
 package com.example.poledigitalacademypda.Dao;
 
-import org.hibernate.SessionFactory;
 
 public interface Dao<T> {
     public T find(int id);
