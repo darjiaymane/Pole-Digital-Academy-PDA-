@@ -8,6 +8,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 import lombok.AllArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 public class UserRepositoryImpl implements UserRepository {
     private UserDAOImpl userDAOImpl;
@@ -26,13 +28,12 @@ public class UserRepositoryImpl implements UserRepository {
         return (User) this.entityManager.createQuery("SELECT u FROM User u WHERE u.email = :email").setParameter("email",email).getSingleResult();
     }
     @Override
-    public User[] findAll() {
-        return new User[0];
+    public List<User> findAll() {
+        return null;
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int id) {
     }
 
     @Override

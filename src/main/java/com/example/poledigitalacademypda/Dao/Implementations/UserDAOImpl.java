@@ -7,6 +7,9 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class UserDAOImpl implements UserDao {
     private EntityManager entityManager;
@@ -24,13 +27,13 @@ public class UserDAOImpl implements UserDao {
 
 
     @Override
-    public User[] findAll() {
-        return new User[0];
+    public List<User> findAll() {
+        return new ArrayList<>();
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public void delete(int id) {
+
     }
 
     @Override
