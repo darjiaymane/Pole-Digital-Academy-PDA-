@@ -5,28 +5,25 @@ import com.example.poledigitalacademypda.Repository.Implementation.UserRepositor
 
 import java.util.Arrays;
 
-public class UserService  {
+public class UserService {
     private UserRepositoryImpl userRepository;
 
     public UserService() {
         this.userRepository = new UserRepositoryImpl();
     }
-    public void addUser(User user){
+
+    public void addUser(User user) {
         this.userRepository.save(user);
     }
-    public User login(User user) throws Exception{
-        try{
-            User user1 = this.userRepository.findByEmail(user.getEmail());
-            System.out.println(user1);
-            if(user1.getPassword().equals(user.getPassword())){
-                return user1;
-            }
 
-        }catch (Exception e){
-            System.out.println("Login Fih moshkil");
+    public User login(User user) {
+        User user1 = this.userRepository.findByEmail(user.getEmail());
+        System.out.println(user1);
+        if (user1.getPassword().equals(user.getPassword())) {
+            return user1;
         }
+
         return null;
 
-        }
-
+    }
 }

@@ -27,7 +27,7 @@ public class User {
     private String phone;
     @Column
     private String password;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Role role;
 
     public User(String fname, String lname, String email, String phone, String password, Role role) {
