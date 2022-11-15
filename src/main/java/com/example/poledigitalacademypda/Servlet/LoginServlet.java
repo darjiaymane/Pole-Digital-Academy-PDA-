@@ -4,6 +4,7 @@ import com.example.poledigitalacademypda.Entities.User;
 import com.example.poledigitalacademypda.Repository.Implementation.UserRepositoryImpl;
 import com.example.poledigitalacademypda.Repository.Specs.UserRepository;
 import com.example.poledigitalacademypda.Services.UserService;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -45,7 +46,19 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("firstname",user_out.getFname());
             session.setAttribute("id",user_out.getId());
             session.setAttribute("role",user_out.getRole());
+            switch (user_out.getRole().getName()){
+                case "candidate":
+                    req.getRequestDispatcher("/candidate.jsp").forward(req,resp);
+                    break;
+                case "manager":
+                    req.getRequestDispatcher("/manager.jsp").forward(req,resp);
 
+                    break;
+                case "admin":
+                    req.getRequestDispatcher("/admin.jsp").forward(req,resp);
+
+                    break;
+            }
 
 
 
