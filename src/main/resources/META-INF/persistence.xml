@@ -6,6 +6,13 @@
     <persistence-unit name="default">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.example.poledigitalacademypda.Entities.User</class>
+        <class>com.example.poledigitalacademypda.Entities.Manager</class>
+        <class>com.example.poledigitalacademypda.Entities.Admin</class>
+        <class>com.example.poledigitalacademypda.Entities.Candidate</class>
+        <class>com.example.poledigitalacademypda.Entities.Activity</class>
+
+
+
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"></property>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/testSequence"></property>

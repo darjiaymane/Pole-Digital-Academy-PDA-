@@ -4,23 +4,27 @@ import com.example.poledigitalacademypda.Dao.Dao;
 import com.example.poledigitalacademypda.Dao.Implementations.UserDAOImpl;
 import com.example.poledigitalacademypda.Entities.User;
 import com.example.poledigitalacademypda.Repository.Specs.UserRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Persistence;
 import lombok.AllArgsConstructor;
-import org.hibernate.SessionFactory;
 
 @AllArgsConstructor
 public class UserRepositoryImpl implements UserRepository {
     private UserDAOImpl userDAOImpl;
-    private SessionFactory sessionFactory;
+    private EntityManager entityManager;
 
     public UserRepositoryImpl() {
         this.userDAOImpl = new UserDAOImpl();
+        this.entityManager = Persistence.createEntityManagerFactory("default").createEntityManager();
     }
 
     @Override
     public User find(int id) {
         return null;
     }
-
+    public User findByEmail(String email) {
+        return (User) this.entityManager.createQuery("SELECT u FROM User u WHERE u.email = :email").setParameter("email",email).getSingleResult();
+    }
     @Override
     public User[] findAll() {
         return new User[0];

@@ -1,19 +1,20 @@
 package com.example.poledigitalacademypda.Entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "users")
+@Entity
+@Table(name="users")
 public class User {
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false)
     private Long id;
     @Column
@@ -37,4 +38,6 @@ public class User {
         this.password = password;
         this.role = role;
     }
+
+
 }

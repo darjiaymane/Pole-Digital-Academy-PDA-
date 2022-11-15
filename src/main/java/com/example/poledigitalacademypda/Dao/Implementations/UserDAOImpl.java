@@ -6,13 +6,7 @@ import com.example.poledigitalacademypda.Entities.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.resource.transaction.spi.TransactionStatus;
-import org.hibernate.service.ServiceRegistry;
+
 
 public class UserDAOImpl implements UserDao {
     private EntityManager entityManager;
@@ -24,6 +18,10 @@ public class UserDAOImpl implements UserDao {
     public User find(int id) {
         return null;
     }
+//    public User find(String username) {
+//        entityManager.createQuery("")
+//    }
+
 
     @Override
     public User[] findAll() {
@@ -51,7 +49,4 @@ public class UserDAOImpl implements UserDao {
 
 
 
-    public SessionFactory exportEntityManager() {
-        return this.exportEntityManager();
-    }
 }

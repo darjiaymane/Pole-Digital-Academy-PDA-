@@ -18,8 +18,8 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        User user = new User("ibrahim","esseddyq","email","07","pass",null);
-//        this.userService.addUser(user);
+        User user = new User("ibrahim","esseddyq","email","07","pass",null);
+        this.userService.addUser(user);
         System.out.println(System. getProperty("java.version"));
 
     }

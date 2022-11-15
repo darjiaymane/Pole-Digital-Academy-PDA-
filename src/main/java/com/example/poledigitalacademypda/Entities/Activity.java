@@ -5,16 +5,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
-
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class Manager extends User{
+@NoArgsConstructor
+public class Activity {
+    @Id
+    @GeneratedValue
+    private Integer id;
     @Column
-    private String type;
-    @OneToMany
-    private List<Activity> activityList;
+    private String title;
+    @Column
+    private String description;
+    @ManyToOne
+    private Manager manager;
+
 }
