@@ -19,12 +19,8 @@
             <property name="jakarta.persistence.jdbc.user" value="postgres"></property>
             <property name="jakarta.persistence.jdbc.password" value="mama123baba"></property>
             <!--        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>-->
-<<<<<<< HEAD
             <property name="hibernate.hbm2ddl.auto" value="update"></property>
-=======
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"></property>
-            <property name="org.hibernate.event.internal.DefaultPersistEventListener" value="true"></property>
->>>>>>> main
+
 
             <!-- Connection Pool Size -->
 
