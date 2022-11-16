@@ -6,6 +6,7 @@ import com.example.poledigitalacademypda.Entities.User;
 import com.example.poledigitalacademypda.Repository.Specs.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
@@ -25,7 +26,19 @@ public class UserRepositoryImpl implements UserRepository {
         return null;
     }
     public User findByEmail(String email) {
-        return (User) this.entityManager.createQuery("SELECT u FROM User u WHERE u.email = :email").setParameter("email",email).getSingleResult();
+        System.out.println(email);
+        try {
+            Query q = this.entityManager.createQuery("SELECT u FROM User u WHERE u.email = :email");
+            q.setParameter("email",email);
+            System.out.println(q.getResultList());
+            return (User) q.getResultList().get(0);
+
+        }catch (Exception e){
+            System.out.println("Kayn mochkil f repo");
+            System.out.println(e.getCause());
+
+            return null;
+        }
     }
     @Override
     public List<User> findAll() {

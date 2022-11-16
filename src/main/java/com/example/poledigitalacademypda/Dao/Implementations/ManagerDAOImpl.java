@@ -19,8 +19,7 @@ public class ManagerDAOImpl implements ManagerDao {
 
     @Override
     public Manager find(int id) {
-        Manager manager = this.entityManager.find(Manager.class, id);
-        return manager;
+        return this.entityManager.find(Manager.class,id);
     }
 
     @Override

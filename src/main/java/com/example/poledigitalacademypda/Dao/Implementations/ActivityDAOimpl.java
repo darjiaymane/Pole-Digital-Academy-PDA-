@@ -27,8 +27,15 @@ public class ActivityDAOimpl implements ActivityDao {
 
     @Override
     public void delete(int id) {
+    Activity activity = this.find(id);
+        System.out.println(activity);
+        try{
+            this.entityManager.remove(activity);
 
-        this.entityManager.remove(this.find(id));
+        }catch (Exception e){
+            System.out.println("remove mkhadamach");
+            System.out.println(e.getStackTrace());
+        }
     }
 
     @Override

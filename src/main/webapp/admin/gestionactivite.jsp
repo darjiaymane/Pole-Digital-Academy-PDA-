@@ -13,11 +13,13 @@
     <title>Title</title>
 </head>
 <body>
-<%--<% if(request.getSession().getAttribute("role")!="admin"){--%>
-<%--   response.sendRedirect("/");--%>
-<%--}%>--%>
-<%--<%! AdminService adminService = new AdminService();%>--%>
-<%--<% List<Activity> activities = adminService.showAllActivties();%>--%>
+//    if(request.getSession().getAttribute("role")!="admin"){
+//   response.sendRedirect("/");
+//}
+<%
+%>
+<%! AdminService adminService = new AdminService();%>
+<% List<Activity> activities = adminService.showAllActivties();%>
 
 <p>Activities</p>
 <table>
@@ -26,22 +28,49 @@
         <th>description</th>
         <th>manager name</th>
     </tr>
-<%--    <% for(int i=0;i<activities.size();i++){ %>--%>
-<%--    <tr>--%>
-<%--        <td><%= activities.get(i).getTitle() %></td>--%>
-<%--        <td><%= activities.get(i).getDescription() %></td>--%>
-<%--        <td><%= activities.get(i).getManager().getFname()  %></td>--%>
-<%--    </tr>--%>
-<%--    <% } %>--%>
+    <% for(int i=0;i<activities.size();i++){ %>
+    <tr>
+        <td><%= activities.get(i).getId() %></td>
+
+        <td><%= activities.get(i).getTitle() %></td>
+        <td><%= activities.get(i).getDescription() %></td>
+        <%--        <td><%= activities.get(i).getManager().getFname()  %></td>--%>
+        <td><button><a href="/PDA/deleteactivity?id=<%=activities.get(i).getId()%>">Delete</a></button></td>
+        <td><button><a href="?updateid=<%=activities.get(i).getId()%>">Update</a></button></td>
+
+    </tr>
+    <% } %>
 </table>
-<form>
+<% if(request.getParameter("updateid")){
+%>
+<form action="/updateactivity?id=<%=request.getParameter("id")%>">
+
     <label>title</label>
     <input name="title">
     <label>description</label>
     <input name="description">
     <label>manager id:</label>
     <input name="manager_id">
-    <input name="submit">
+    <input type="submit">
 </form>
+<%
+}
+else{
+%>
+<form action="/addactivity%>">
+
+    <label>title</label>
+    <input name="title">
+    <label>description</label>
+    <input name="description">
+    <label>manager id:</label>
+    <input name="manager_id">
+    <input type="submit">
+</form>
+<%
+    }
+%>
+
+%>
 </body>
 </html>
