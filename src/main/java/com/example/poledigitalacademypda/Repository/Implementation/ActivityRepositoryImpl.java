@@ -26,7 +26,7 @@ public class ActivityRepositoryImpl implements ActivityRepository {
 
     @Override
     public void delete(int id) {
-        this.delete(id);
+        this.activityDao.delete(id);
     }
 
     @Override

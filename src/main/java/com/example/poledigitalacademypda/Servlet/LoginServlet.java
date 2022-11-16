@@ -46,6 +46,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("firstname",user_out.getFname());
             session.setAttribute("id",user_out.getId());
             session.setAttribute("role",user_out.getRole());
+            System.out.println(user_out);
             switch (user_out.getRole().getName()){
                 case "candidate":
                     req.getRequestDispatcher("/candidate.jsp").forward(req,resp);
@@ -63,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println("moshkil f login");
         }
 
     }
