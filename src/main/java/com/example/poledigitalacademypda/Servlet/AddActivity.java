@@ -16,9 +16,14 @@ public class AddActivity extends HttpServlet {
     AdminService adminService= new AdminService();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Activity activity = new Activity();
+        activity.setTitle(req.getParameter("title"));
+        activity.setDescription(req.getParameter("description"));
+//        activity.setManager();
+
         this.adminService.addActivity(req);
         resp.sendRedirect("../gestionactvite.jsp");
-
 
     }
 }

@@ -15,12 +15,16 @@
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"></property>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/testSequence"></property>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Test-JPA"></property>
             <property name="jakarta.persistence.jdbc.user" value="postgres"></property>
-            <property name="jakarta.persistence.jdbc.password" value="root"></property>
+            <property name="jakarta.persistence.jdbc.password" value="mama123baba"></property>
             <!--        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>-->
+<<<<<<< HEAD
+            <property name="hibernate.hbm2ddl.auto" value="update"></property>
+=======
             <property name="hibernate.hbm2ddl.auto" value="create-drop"></property>
             <property name="org.hibernate.event.internal.DefaultPersistEventListener" value="true"></property>
+>>>>>>> main
 
             <!-- Connection Pool Size -->
 

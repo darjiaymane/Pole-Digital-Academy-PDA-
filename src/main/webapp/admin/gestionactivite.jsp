@@ -16,8 +16,7 @@
 //    if(request.getSession().getAttribute("role")!="admin"){
 //   response.sendRedirect("/");
 //}
-    <%
-
+<%
 %>
 <%! AdminService adminService = new AdminService();%>
 <% List<Activity> activities = adminService.showAllActivties();%>
@@ -35,14 +34,17 @@
 
         <td><%= activities.get(i).getTitle() %></td>
         <td><%= activities.get(i).getDescription() %></td>
-<%--        <td><%= activities.get(i).getManager().getFname()  %></td>--%>
+        <%--        <td><%= activities.get(i).getManager().getFname()  %></td>--%>
         <td><button><a href="/PDA/deleteactivity?id=<%=activities.get(i).getId()%>">Delete</a></button></td>
-        <td><button><a href="?id=<%=activities.get(i).getId()%>">Update</a></button></td>
+        <td><button><a href="?updateid=<%=activities.get(i).getId()%>">Update</a></button></td>
 
     </tr>
     <% } %>
 </table>
-<form action="">
+<% if(request.getParameter("updateid")){
+%>
+<form action="/updateactivity?id=<%=request.getParameter("id")%>">
+
     <label>title</label>
     <input name="title">
     <label>description</label>
@@ -51,5 +53,24 @@
     <input name="manager_id">
     <input type="submit">
 </form>
+<%
+}
+else{
+%>
+<form action="/addactivity%>">
+
+    <label>title</label>
+    <input name="title">
+    <label>description</label>
+    <input name="description">
+    <label>manager id:</label>
+    <input name="manager_id">
+    <input type="submit">
+</form>
+<%
+    }
+%>
+
+%>
 </body>
 </html>
