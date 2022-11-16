@@ -2,6 +2,7 @@ package com.example.poledigitalacademypda.Servlet;
 
 import com.example.poledigitalacademypda.Entities.Manager;
 import com.example.poledigitalacademypda.Entities.Participant;
+import com.example.poledigitalacademypda.Entities.Role;
 import com.example.poledigitalacademypda.Services.ManagerService;
 import com.example.poledigitalacademypda.Services.ParticipantServie;
 import jakarta.servlet.*;
@@ -25,6 +26,30 @@ public class ServletParticipant extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String domaine = request.getParameter("domaine");
+        String email = request.getParameter("email");
+        String fname = request.getParameter("fname");
+        String lname = request.getParameter("lname");
+        String password = request.getParameter("password");
+        String phone = request.getParameter("phone");
+        boolean status = Boolean.parseBoolean(request.getParameter("status"));
+        String role = request.getParameter("role");
+        String structure =request.getParameter("structure");
 
+
+
+
+        Participant participant = new Participant();
+        participant.setFname(fname);
+        participant.setLname(lname);
+        participant.setEmail(email);
+        participant.setPhone(phone);
+        participant.setPassword(password);
+       participant.setRole(new Role(role));
+        participant.setDomaine(domaine);
+        participant.setStatus(status);
+        participant.setStructure(structure);
+        participantServie.save(participant);
+        response.sendRedirect(request.getContextPath()+"/ServletParticipant");
     }
 }

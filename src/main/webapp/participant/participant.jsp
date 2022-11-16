@@ -56,14 +56,6 @@
                             <input type="text" name="phone" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Status</label>
-                            <select name="status" class="form-select">
-                                <option selected disabled>Select option</option>
-                                <option value="true">Active</option>
-                                <option value="false">Desactive</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
                             <label class="form-label">Domaine</label>
                             <input type="text" name="domaine" class="form-control"  aria-describedby="emailHelp">
                         </div>
@@ -71,13 +63,21 @@
                             <label class="form-label">Role</label>
                             <select name="role" class="form-select">
                                 <option selected disabled>Select option</option>
-                                <option value="manager">Manager</option>
-                                <option value="participant">Participant</option>
+                                <option value="participant">participant</option>
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <select name="status" class="form-select">
+                                <option selected disabled>Select option</option>
+                                <option value="true">Active</option>
+                                <option value="false">Desactive</option>
                             </select>
                         </div>
                         <div>
-                            <label class="form-label">Type</label>
-                            <input type="text" name="type" class="form-control">
+                            <label class="form-label">structure</label>
+                            <input type="text" name="structure" class="form-control">
                         </div>
                         <button type="submit" class="mt-2 btn btn-primary">Submit</button>
                     </form>
