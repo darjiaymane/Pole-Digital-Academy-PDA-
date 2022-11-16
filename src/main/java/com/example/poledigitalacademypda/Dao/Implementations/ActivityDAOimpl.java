@@ -52,7 +52,10 @@ public class ActivityDAOimpl implements ActivityDao {
     @Override
     public Activity update(Activity activity) {
         try {
-            this.entityManager.persist(activity);
+            System.out.println("abdo");
+            System.out.println(activity);
+
+            this.entityManager.merge(activity);
             return activity;
         }catch (Exception e){
             return null;

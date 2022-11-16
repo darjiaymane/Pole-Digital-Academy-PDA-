@@ -23,6 +23,10 @@ public class AdminService {
     public List<Activity> showAllActivties(){
         return this.activityRepository.findAll();
     }
+    public Activity findActivity(int id){
+        return this.activityRepository.find(id);
+    }
+
     public Manager getManager(int id){
         return this.managerRepository.find(id);
     }
@@ -30,7 +34,7 @@ public class AdminService {
         Activity activity = new Activity();
         activity.setTitle(req.getParameter("title"));
         activity.setDescription(req.getParameter("description"));
-        Manager manager = this.getManager(Integer.valueOf(req.getParameter("description")) );
+        Manager manager = this.getManager(Integer.valueOf(req.getParameter("manager_id")) );
         activity.setManager(manager);
         this.activityRepository.save(activity);
     }
@@ -39,10 +43,12 @@ public class AdminService {
     }
     public void updateActivity(HttpServletRequest req){
         Activity activity = new Activity();
-        activity.setId(Integer.valueOf(req.getParameter("id")));
-        activity.setStatus(Boolean.valueOf(req.getParameter("status")));
+        activity.setId(Integer.valueOf(req.getParameter("updateid")));
+        activity.setStatus(true);
         activity.setDescription(req.getParameter("description"));
         activity.setTitle(req.getParameter("title"));
+        activity.setManager(managerRepository.find(Integer.valueOf(req.getParameter("manager_id"))));
+        activityRepository.update(activity);
 
     }
 

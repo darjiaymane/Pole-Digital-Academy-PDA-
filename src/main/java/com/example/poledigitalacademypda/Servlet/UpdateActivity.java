@@ -9,13 +9,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name="updateactivity",value = "/updateactivity")
+@WebServlet(name="UpdateActivity",value = "/UpdateActivity")
 public class UpdateActivity extends HttpServlet {
     AdminService adminService;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        adminService = new AdminService()
+        System.out.println("daz l update activity");
+        adminService = new AdminService();
         this.adminService.updateActivity(req);
-        resp.sendRedirect("../gestionactvite.jsp");
+        resp.sendRedirect("/PDA/admin/gestionactivite.jsp");
     }
 }

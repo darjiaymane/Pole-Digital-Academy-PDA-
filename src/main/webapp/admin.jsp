@@ -7,16 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<jsp:include page="head.jsp"></jsp:include>
 
-<p>Gestion de Responsable</p>
-<a href="admin/gestionrespo.jsp">here</a>
-<p>Gestion d'Activite</p>
-<a href="admin/gestionactivite.jsp">here</a>
-<p>Gestion des exercices</p>
-<a href="admin/gestionex.jsp.jsp">here</a>
+<body class="d-flex bg-light">
+<jsp:include page="SideBar.jsp"></jsp:include>
+<div class="col-10">
+    <jsp:include page="Navbar.jsp"></jsp:include>
+    <div class="d-flex justify-content-center align-items-center p-3">
+        Dashboard
+    </div>
+</div>
 </body>
 </html>

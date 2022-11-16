@@ -29,6 +29,7 @@ public class UserRepositoryImpl implements UserRepository {
         System.out.println(email);
         try {
             Query q = this.entityManager.createQuery("SELECT u FROM User u WHERE u.email = :email");
+            System.out.println(this.entityManager.createQuery("SELECT u FROM User u ").getResultList());
             q.setParameter("email",email);
             System.out.println(q.getResultList());
             return (User) q.getResultList().get(0);

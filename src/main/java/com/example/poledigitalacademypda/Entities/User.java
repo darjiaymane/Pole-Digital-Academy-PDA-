@@ -27,6 +27,10 @@ public class User {
     private String phone;
     @Column
     private String password;
+    @Column
+    private String domaine;
+    @Column
+    private boolean status;
     @OneToOne(cascade = CascadeType.ALL)
     private Role role;
 
@@ -39,5 +43,18 @@ public class User {
         this.role = role;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", password='" + password + '\'' +
+                ", domaine='" + domaine + '\'' +
+                ", status=" + status +
+                ", role=" + role +
+                '}';
+    }
 }
