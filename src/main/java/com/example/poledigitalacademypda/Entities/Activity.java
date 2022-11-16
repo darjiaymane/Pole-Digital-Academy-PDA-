@@ -17,7 +17,10 @@ public class Activity {
     private String title;
     @Column
     private String description;
-    @ManyToOne
+
+    @ManyToOne @JoinColumn(name = "manager_id",referencedColumnName = "id")
     private Manager manager;
+    @Column
+    private Boolean status;
 
 }

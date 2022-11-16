@@ -11,11 +11,12 @@ public class ManagerDAOImpl implements ManagerDao {
     EntityManager entityManager;
 
     public ManagerDAOImpl() {
-        entityManager = Persistence.createEntityManagerFactory("")
+        entityManager = Persistence.createEntityManagerFactory("default").createEntityManager();
     }
 
     @Override
     public Manager find(int id) {
+        return this.entityManager.find(Manager.class,id);
 
     }
 
