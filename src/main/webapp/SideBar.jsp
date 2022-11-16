@@ -33,7 +33,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="ServletParticipant" class="nav-link link-dark">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
                 Participants
             </a>
