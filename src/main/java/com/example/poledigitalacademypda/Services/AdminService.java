@@ -37,6 +37,15 @@ public class AdminService {
     public void deleteActivity(int id ){
         this.activityRepository.delete(id);
     }
+    public void updateActivity(HttpServletRequest req){
+        Activity activity = new Activity();
+        activity.setId(Integer.valueOf(req.getParameter("id")));
+        activity.setStatus(Boolean.valueOf(req.getParameter("status")));
+        activity.setDescription(req.getParameter("description"));
+        activity.setTitle(req.getParameter("title"));
+
+    }
+
 
 
 }
