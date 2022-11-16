@@ -16,6 +16,7 @@ import java.util.List;
 public class Manager extends User implements Serializable {
     @Column
     private String type;
+
     @OneToMany
     private List<Activity> activityList;
 
@@ -27,6 +28,7 @@ public class Manager extends User implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
+
 
     public List<Activity> getActivityList() {
         return activityList;
