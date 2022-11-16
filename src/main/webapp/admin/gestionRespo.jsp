@@ -20,20 +20,78 @@
             <div class="mt-4">
                 <h5 class="text-secondary ms-2 col">Managers List</h5>
             </div>
-            <button type="button" class="btn btn-secondary my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Manager</button>
+            <button type="button" class="btn btn-secondary my-3" data-bs-toggle="modal" data-bs-target="#addModal">Add Manager</button>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="updateModelLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Manager</h5>
+                        <h5 class="modal-title" id="updateModelLabel">Add Manager</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form  method="post" class="p-3">
+                    <form  method="post" action="addManager" class="p-3" name="addManagerForm">
                         <div class="mb-3">
                             <label for="" class="form-label">First Name</label>
                             <input type="text" name="fname" class="form-control" id="" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" name="lname" class="form-control"  aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control"  aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">password</label>
+                            <input type="password" name="password" class="form-control"  aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="text" name="phone" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <select name="status" class="form-select">
+                                <option selected disabled>Select option</option>
+                                <option value="true">Active</option>
+                                <option value="false">Desactive</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Domaine</label>
+                            <input type="text" name="domaine" class="form-control"  aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Role</label>
+                            <select name="role" class="form-select">
+                                <option selected disabled>Select option</option>
+                                <option value="manager">Manager</option>
+                                <option value="participant">Participant</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Type</label>
+                            <input type="text" name="type" class="form-control">
+                        </div>
+                        <button type="submit" class="mt-2 btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="updateModel" tabindex="-1" aria-labelledby="updateModelLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateModal">Update Manager</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form  method="post" action="updateManager" class="p-3" name="managerForm">
+                        <input type = "hidden" name="id">
+                        <div class="mb-3">
+                            <label for="" class="form-label">First Name</label>
+                            <input type="text" name="fname" class="form-control"  aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Last Name</label>
@@ -90,25 +148,28 @@
                     <th>First Name</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Status</th>
                     <th>Domaine</th>
                     <th>Role</th>
-                    <th class="invisible">icon</th>
-                    <th class="invisible">update</th>
+                    <th>Type</th>
+                    <th>update</th>
 
                 </tr>
                 </thead>
                 <tbody>
 
                 <% for (Manager manager : managerList){%>
-                <tr class="bg-white align-middle">
-                    <td><%=manager.getFname()%></td>
-                    <td><%=manager.getLname()%></td>
-                    <td><%=manager.getEmail()%></td>
-                    <td><%=manager.getPhone()%></td>
-                    <td><%=manager.getDomaine()%></td>
-                    <td><%=manager.getRole().getName()%></td>
-                    <td><i class="fas fa-eye text-primary fw-light"></i></td>
-                    <td><a href="Pole_Digital_Academy_PDA__war_exploded/editManager?edit=<%= manager.getId()%>"><i class="bi bi-pencil-square"></i></a></td>
+                <tr class="bg-white align-middle" >
+                        <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)" class="d-none"><%=manager.getId()%></td>
+                    <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.getFname()%></td>
+                    <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.getLname()%></td>
+                    <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.getEmail()%></td>
+                    <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.getPhone()%></td>
+                    <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.isStatus()%></td>
+                    <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.getDomaine()%></td>
+                    <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.getRole().getName()%></td>
+                    <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.getType()%></td>
+                    <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><i class="fas fa-eye text-primary fw-light"></i></td>
                 </tr>
                 <%}%>
 
@@ -117,6 +178,20 @@
         </div>
     </div>
 </div>
+<script>
+    function chargeModel(event) {
+        let parent = event.target.parentElement;
+        let form = document.forms['managerForm'];
+        form.id.value = parent.children[0].innerText;
+        form.fname.value = parent.children[1].innerText;
+        form.lname.value = parent.children[2].innerText;
+        form.email.value = parent.children[3].innerText;
+        form.phone.value = parent.children[4].innerText;
+        form.status.value = parent.children[5].innerText;
+        form.domaine.value = parent.children[6].innerText;
+        form.role.value = parent.children[7].innerText;
+        form.type.value = parent.children[8].innerText;
+    }
+</script>
 </body>
 </html>
-<body>

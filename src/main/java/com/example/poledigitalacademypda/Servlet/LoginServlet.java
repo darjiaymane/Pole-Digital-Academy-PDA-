@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
                 out.println("congrats");
             }
             else {
-                out.println("dmmg");
+                out.println("Error");
 
             }
             HttpSession session = req.getSession();
@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 
 
         } catch (Exception e) {
-            System.out.println("moshkil f login");
+            System.out.println("Error");
         }
 
     }

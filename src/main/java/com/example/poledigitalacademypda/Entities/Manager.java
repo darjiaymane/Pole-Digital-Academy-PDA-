@@ -29,6 +29,7 @@ public class Manager extends User implements Serializable {
         this.type = type;
     }
 
+
     public List<Activity> getActivityList() {
         return activityList;
     }
