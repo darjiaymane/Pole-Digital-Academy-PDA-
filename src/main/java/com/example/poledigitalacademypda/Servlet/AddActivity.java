@@ -13,10 +13,10 @@ import java.io.IOException;
 public class AddActivity extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Activity activity = new Activity();
-        activity.setTitle(req.getParameter("title"));
-        activity.setDescription(req.getParameter("description"));
-        activity.setManager();
+//        Activity activity = new Activity();
+//        activity.setTitle(req.getParameter("title"));
+//        activity.setDescription(req.getParameter("description"));
+//        activity.setManager();
 
     }
 }

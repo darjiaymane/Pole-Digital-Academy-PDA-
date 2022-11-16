@@ -13,11 +13,11 @@
     <title>Title</title>
 </head>
 <body>
-<% if(request.getSession().getAttribute("role")!="admin"){
-   response.sendRedirect("/");
-}%>
-<%! AdminService adminService = new AdminService();%>
-<% List<Activity> activities = adminService.showAllActivties();%>
+<%--<% if(request.getSession().getAttribute("role")!="admin"){--%>
+<%--   response.sendRedirect("/");--%>
+<%--}%>--%>
+<%--<%! AdminService adminService = new AdminService();%>--%>
+<%--<% List<Activity> activities = adminService.showAllActivties();%>--%>
 
 <p>Activities</p>
 <table>
@@ -26,13 +26,13 @@
         <th>description</th>
         <th>manager name</th>
     </tr>
-    <% for(int i=0;i<activities.size();i++){ %>
-    <tr>
-        <td><%= activities.get(i).getTitle() %></td>
-        <td><%= activities.get(i).getDescription() %></td>
-        <td><%= activities.get(i).getManager().getFname()  %></td>
-    </tr>
-    <% } %>
+<%--    <% for(int i=0;i<activities.size();i++){ %>--%>
+<%--    <tr>--%>
+<%--        <td><%= activities.get(i).getTitle() %></td>--%>
+<%--        <td><%= activities.get(i).getDescription() %></td>--%>
+<%--        <td><%= activities.get(i).getManager().getFname()  %></td>--%>
+<%--    </tr>--%>
+<%--    <% } %>--%>
 </table>
 <form>
     <label>title</label>
