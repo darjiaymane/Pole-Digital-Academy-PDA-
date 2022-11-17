@@ -1,8 +1,10 @@
 package com.example.poledigitalacademypda.Servlet;
 
+import com.example.poledigitalacademypda.Entities.Manager;
 import com.example.poledigitalacademypda.Entities.User;
 import com.example.poledigitalacademypda.Repository.Implementation.UserRepositoryImpl;
 import com.example.poledigitalacademypda.Repository.Specs.UserRepository;
+import com.example.poledigitalacademypda.Services.ManagerService;
 import com.example.poledigitalacademypda.Services.UserService;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -14,12 +16,16 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet(name = "login" , value = "/login")
 public class LoginServlet extends HttpServlet {
     private UserService userService;
     private int count = 0;
-
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+                request.getRequestDispatcher("admin.jsp").forward(request,response);
+    }
     @Override
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -60,8 +66,6 @@ public class LoginServlet extends HttpServlet {
 
                     break;
             }
-
-
 
         } catch (Exception e) {
             System.out.println("Error");

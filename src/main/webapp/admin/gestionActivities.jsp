@@ -160,7 +160,7 @@
 
                 <% for (Manager manager : managerList){%>
                 <tr class="bg-white align-middle" >
-                        <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)" class="d-none"><%=manager.getId()%></td>
+                    <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)" class="d-none"><%=manager.getId()%></td>
                     <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.getFname()%></td>
                     <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.getLname()%></td>
                     <td data-bs-toggle="modal" data-bs-target="#updateModel" onclick="chargeModel(event)"><%=manager.getEmail()%></td>

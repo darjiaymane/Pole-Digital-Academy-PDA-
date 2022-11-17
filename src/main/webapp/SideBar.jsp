@@ -7,39 +7,39 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<aside class="d-flex flex-column flex-shrink-0 p-3 bg-secondary vh-100 col-2">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+<aside class="d-flex flex-column flex-shrink-0 p-3 bg-primary vh-100 col-2">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white fw-bold text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-6">Pole Digital Academy</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto ">
         <li >
-            <a href="#" class="nav-link text-white" aria-current="page">
+            <a href="#" class="nav-link text-white fw-bold" aria-current="page">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                 Profile
             </a>
         </li>
         <li>
-            <a href="AdminServlet" class="nav-link link-dark text-white">
+            <a href="AdminServlet" class="nav-link fw-bold text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                 Managers
             </a>
         </li>
         <li>
-            <a href="Addactivity" class="nav-link link-dark">
+            <a href="addActivity" class="nav-link text-white fw-bold">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
                 Activities
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="#" class="nav-link text-white fw-bold">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
                 Participants
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="#" class="nav-link text-white fw-bold">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
                 Exercices
             </a>
@@ -47,7 +47,7 @@
     </ul>
     <hr>
     <div class="dropdown">
-        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+        <a href="#" class="d-flex align-items-center text-white fw-bold text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
             <strong>mdo</strong>
         </a>
