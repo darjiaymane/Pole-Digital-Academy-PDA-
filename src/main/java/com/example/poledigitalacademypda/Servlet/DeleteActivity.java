@@ -18,5 +18,6 @@ public class DeleteActivity extends HttpServlet {
 
         this.adminService.deleteActivity(Integer.valueOf(req.getParameter("id")));
         resp.sendRedirect("/PDA/admin/gestionactivite.jsp");
+
     }
 }
