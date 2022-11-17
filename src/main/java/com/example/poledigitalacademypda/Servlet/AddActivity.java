@@ -14,6 +14,16 @@ import java.io.IOException;
 @WebServlet(name = "addactivity",value = "/addactivity")
 public class AddActivity extends HttpServlet {
     AdminService adminService= new AdminService();
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String path = request.getServletPath();
+        switch(path){
+            case "/AdminServlet":
+                request.getRequestDispatcher("admin/gestionRespo.jsp").forward(request,response);
+                break;
+        }
+    }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

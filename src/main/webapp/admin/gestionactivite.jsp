@@ -41,7 +41,7 @@
     </tr>
     <% } %>
 </table>
-<% if(request.getParameter("updateid")){
+<% if(request.getParameter("updateId")){
 %>
 <form action="/updateactivity?id=<%=request.getParameter("id")%>">
 
