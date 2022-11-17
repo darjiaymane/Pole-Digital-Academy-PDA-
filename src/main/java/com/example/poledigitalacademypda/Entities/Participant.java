@@ -20,7 +20,7 @@ public class Participant extends User implements Serializable {
 
     @Override
     public String toString() {
-        return "Participant{" +super.toString()+
+        return "Participant{" + super.toString()+
                 "Structure='" + Structure + '\'' +
                 '}';
     }
