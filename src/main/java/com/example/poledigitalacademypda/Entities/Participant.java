@@ -14,7 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Participant")
-public class Participant extends User implements Serializable {
+public class Participant extends User  {
     @Column
     private  String Structure;
 

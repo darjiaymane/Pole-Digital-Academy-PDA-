@@ -82,8 +82,6 @@ public class ServletParticipant extends HttpServlet {
                 Participant.setStructure(Structure);
                 participantServie.save(Participant);
                 response.sendRedirect(request.getContextPath() + "/ServletParticipant");
-
-
                 break;
         }
     }

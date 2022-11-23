@@ -65,6 +65,10 @@ public class LoginServlet extends HttpServlet {
                     req.getRequestDispatcher("/admin.jsp").forward(req,resp);
 
                     break;
+                case "participant":
+                    req.getRequestDispatcher("/ServletParticipant").forward(req,resp);
+
+                    break;
             }
 
         } catch (Exception e) {

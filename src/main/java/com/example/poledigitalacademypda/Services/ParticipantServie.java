@@ -7,9 +7,10 @@ import com.example.poledigitalacademypda.Entities.Participant;
 import java.util.List;
 
 public class ParticipantServie {
+
     ParticipantDao participantDaoImpl = new ParticipantDAOimpl();
 
-    public void save(Participant participant) {this.participantDaoImpl.save(participant);}
+    public Participant save(Participant participant) {return this.participantDaoImpl.save(participant);}
 
     public Participant find(int id){
         Participant participant = this.participantDaoImpl.find(id);
